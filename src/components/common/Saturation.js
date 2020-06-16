@@ -27,8 +27,8 @@ export class Saturation extends (PureComponent || Component) {
 
   handleMouseDown = (e) => {
     this.handleChange(e)
-    this.container.addEventListener('mousemove', this.handleChange)
-    this.container.addEventListener('mouseup', this.handleMouseUp)
+    this.container.ownerDocument.defaultView.addEventListener('mousemove', this.handleChange)
+    this.container.ownerDocument.defaultView.addEventListener('mouseup', this.handleMouseUp)
   }
 
   handleMouseUp = () => {
@@ -36,8 +36,8 @@ export class Saturation extends (PureComponent || Component) {
   }
 
   unbindEventListeners = () => {
-    this.container.removeEventListener('mousemove', this.handleChange)
-    this.container.removeEventListener('mouseup', this.handleMouseUp)
+    this.container.ownerDocument.defaultView.removeEventListener('mousemove', this.handleChange)
+    this.container.ownerDocument.defaultView.removeEventListener('mouseup', this.handleMouseUp)
   }
 
   render() {
